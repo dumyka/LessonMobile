@@ -1,10 +1,10 @@
 package tests;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.exactValue;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.id;
@@ -37,7 +37,8 @@ public class SearchTest extends TestBase {
     });
     step("Verify content found", () ->
         $(id("org.wikipedia.alpha:id/view_news_fullscreen_story_text"))
-            .shouldHave(text("At the Academy Awards, Everything Everywhere All at Once wins seven awards, including Best Picture and Best Actress for Michelle Yeoh (pictured).")));
+            .shouldHave(text(
+                "At the Academy Awards, Everything Everywhere All at Once wins seven awards, including Best Picture and Best Actress for Michelle Yeoh (pictured).")));
   }
 
   @DisplayName("Successful search on iPhone")

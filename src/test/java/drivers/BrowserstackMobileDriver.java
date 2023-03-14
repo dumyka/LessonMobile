@@ -14,7 +14,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
   @Override
   public WebDriver createDriver(Capabilities capabilities) {
-    MobileDriverConfig config = ConfigFactory.create(MobileDriverConfig.class, System.getProperties());
+    MobileDriverConfig config =
+        ConfigFactory.create(MobileDriverConfig.class, System.getProperties());
     String user = config.getUser();
     String password = config.getPassword();
     String app = config.getApp();
@@ -30,11 +31,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
     mutableCapabilities.setCapability("browserstack.user", user);
     mutableCapabilities.setCapability("browserstack.key", password);
-    //mutableCapabilities.setCapability("app", "bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c");
     mutableCapabilities.setCapability("app", app);
-   // mutableCapabilities.setCapability("device", "Google Pixel 3");
     mutableCapabilities.setCapability("device", device);
-   // mutableCapabilities.setCapability("os_version", "9.0");
     mutableCapabilities.setCapability("os_version", version);
     mutableCapabilities.setCapability("project", nameProject);
     mutableCapabilities.setCapability("build", build);
@@ -43,7 +41,6 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
 
     try {
       return new RemoteWebDriver(
-        //  new URL("http://hub.browserstack.com/wd/hub"), mutableCapabilities);
           new URL(remoteUrl), mutableCapabilities);
     } catch (MalformedURLException e) {
       throw new RuntimeException(e);
