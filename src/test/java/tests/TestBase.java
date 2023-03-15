@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import drivers.BrowserstackMobileDriver;
+import drivers.LocalMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -14,9 +15,25 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
+  public static String env = System.getProperty("env");
 
   @BeforeAll
   static void beforeAll() {
+      if (env == null) {
+        env = "android";
+      }
+
+      switch (env) {
+        case "android":
+          Configuration.browser = BrowserstackMobileDriver.class.getName();
+          break;
+        case "iphone":
+          Configuration.browser = BrowserstackMobileDriver.class.getName();
+          break;
+        case "android_emulator":
+          Configuration.browser = LocalMobileDriver.class.getName();
+          break;
+      }
     Configuration.browser = BrowserstackMobileDriver.class.getName();
     Configuration.browserSize = null;
   }
@@ -35,7 +52,11 @@ public class TestBase {
     Attach.pageSource();
 
     closeWebDriver();
-
-    Attach.addVideo(sessionId);
+    //Attach.addVideo(sessionId);
+    switch (env) {
+      case "android":
+        Attach.addVideo(sessionId);
+        break;
+    }
   }
 }

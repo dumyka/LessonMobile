@@ -4,6 +4,7 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
     "classpath:${env}.properties"
+    //"classpath:android.properties"
 })
 public interface MobileDriverConfig extends Config {
 
