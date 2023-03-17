@@ -12,10 +12,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class SearchLocalTest extends TestBaseLocal {}
-
-
- /* @Test
+public class SearchLocalTest extends TestBaseLocal {
+  @Test
   @Tag("android_emulator")
   @DisplayName("Successful search on Android")
   void successfulSearchAndroidTest() {
@@ -28,8 +26,8 @@ public class SearchLocalTest extends TestBaseLocal {}
     step("Verify content found", () ->
         $$(id("org.wikipedia.alpha:id/page_list_item_title"))
             .shouldHave(sizeGreaterThan(0)));
-  }*/
-/*
+  }
+
   @Test
   @Tag("android_emulator")
   @DisplayName("Checking the loading screen of the first page")
@@ -76,4 +74,4 @@ public class SearchLocalTest extends TestBaseLocal {}
         $(id("org.wikipedia.alpha:id/primaryTextView"))
             .shouldHave(text("Send anonymous data")));
   }
-}*/
+}

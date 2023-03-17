@@ -11,7 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
-   MobileDriverConfig config = ConfigFactory.create(MobileDriverConfig.class, System.getProperties());
+  MobileDriverConfig config =
+      ConfigFactory.create(MobileDriverConfig.class, System.getProperties());
+
   @Override
   public WebDriver createDriver(Capabilities capabilities) {
 

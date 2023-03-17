@@ -1,5 +1,8 @@
 package tests;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -11,22 +14,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.open;
-
 public class TestBase {
   public static String env = System.getProperty("env");
 
   @BeforeAll
   static void beforeAll() {
 
-   /* if (env == "android") {
-      Configuration.browser = BrowserstackMobileDriver.class.getName();
-    } else if (env == "iphone") {
-      Configuration.browser = BrowserstackMobileDriver.class.getName();
-    } else if (env == "android_emulator") {
-      Configuration.browser = LocalMobileDriver.class.getName();
-    }*/
     if (env == null) {
       env = "android";
     }
@@ -43,7 +36,6 @@ public class TestBase {
         break;
 
     }
-    //Configuration.browser = BrowserstackMobileDriver.class.getName();
     Configuration.browserSize = null;
   }
 
@@ -61,7 +53,7 @@ public class TestBase {
     Attach.pageSource();
 
     closeWebDriver();
-    //Attach.addVideo(sessionId);
+
     switch (env) {
       case "android":
         Attach.addVideo(sessionId);

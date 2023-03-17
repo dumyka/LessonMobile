@@ -9,7 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class WikipediaLocalTest extends TestBase{
+public class SearchWikiTest extends TestBase{
 
   @Test
   @Tag("android_emulator")

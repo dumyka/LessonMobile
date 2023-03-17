@@ -38,7 +38,9 @@ public class SearchTest extends TestBase {
     step("Verify content found", () ->
         $(id("org.wikipedia.alpha:id/view_news_fullscreen_story_text"))
             .shouldHave(text(
-                "At the Academy Awards, Everything Everywhere All at Once wins seven awards, including Best Picture and Best Director for Daniel Kwan and Daniel Scheinert (both pictured).")));
+                "At the Academy Awards, Everything Everywhere All at Once wins seven awards," +
+                    " including Best Picture and Best Director for Daniel Kwan and Daniel " +
+                    "Scheinert (both pictured).")));
   }
 
   @DisplayName("Successful search on iPhone")
@@ -52,7 +54,6 @@ public class SearchTest extends TestBase {
     });
     step("Verify content found", () ->
         $(accessibilityId("Text Output")).shouldBe(visible));
-    //$(accessibilityId("Text Output")).shouldHave(text("hello@browserstack.com"));
 
   }
 }
