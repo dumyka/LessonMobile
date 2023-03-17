@@ -3,6 +3,8 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
+    //"system:properties",
+   // "classpath:android_emulator.properties"
     "classpath:${env}.properties"
     //"classpath:android.properties"
 })
@@ -34,4 +36,24 @@ public interface MobileDriverConfig extends Config {
 
   @Key("remoteUrl")
   String getRemoteURL();
+
+
+  @Key("localURL")
+  String getLocalUrl();
+
+  @Key("platformName")
+  String getPlatformName();
+
+  @Key("deviceName")
+  String getDeviceName();
+
+  @Key("platformVersion")
+  String getPlatformVersion();
+
+
+  @Key("appPackage")
+  String getAppPackage();
+
+  @Key("appActivity")
+  String getAppActivity();
 }

@@ -1,39 +1,20 @@
-package tests.local;
+package tests;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.id;
 
-import io.appium.java_client.AppiumBy;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class SearchLocalTest extends TestBaseLocal {}
+public class WikipediaLocalTest extends TestBase{
 
-
- /* @Test
-  @Tag("android_emulator")
-  @DisplayName("Successful search on Android")
-  void successfulSearchAndroidTest() {
-    step("Skip onboarding screen", () ->
-        $(id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click());
-    step("Type search", () -> {
-      $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-      $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("java");
-    });
-    step("Verify content found", () ->
-        $$(id("org.wikipedia.alpha:id/page_list_item_title"))
-            .shouldHave(sizeGreaterThan(0)));
-  }*/
-/*
   @Test
   @Tag("android_emulator")
   @DisplayName("Checking the loading screen of the first page")
-  void onboardingScreen2() {
+  void onboardingScreen() {
     step("open the app", () ->
         $(id("org.wikipedia.alpha:id/primaryTextView")).shouldHave(text("The Free Encyclopedia\n" +
             "…in over 300 languages")));
@@ -76,4 +57,4 @@ public class SearchLocalTest extends TestBaseLocal {}
         $(id("org.wikipedia.alpha:id/primaryTextView"))
             .shouldHave(text("Send anonymous data")));
   }
-}*/
+}

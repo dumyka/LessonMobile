@@ -1,4 +1,4 @@
-package config;
+/*package config;
 
 import org.aeonbits.owner.Config;
 
@@ -31,3 +31,4 @@ public interface LocalConfig extends Config {
   @Key("appActivity")
   String getAppActivity();
 }
+*/

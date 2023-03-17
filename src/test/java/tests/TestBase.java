@@ -19,22 +19,31 @@ public class TestBase {
 
   @BeforeAll
   static void beforeAll() {
-      if (env == null) {
-        env = "android";
-      }
 
-      switch (env) {
-        case "android":
-          Configuration.browser = BrowserstackMobileDriver.class.getName();
-          break;
-        case "iphone":
-          Configuration.browser = BrowserstackMobileDriver.class.getName();
-          break;
-        case "android_emulator":
-          Configuration.browser = LocalMobileDriver.class.getName();
-          break;
-      }
-    Configuration.browser = BrowserstackMobileDriver.class.getName();
+   /* if (env == "android") {
+      Configuration.browser = BrowserstackMobileDriver.class.getName();
+    } else if (env == "iphone") {
+      Configuration.browser = BrowserstackMobileDriver.class.getName();
+    } else if (env == "android_emulator") {
+      Configuration.browser = LocalMobileDriver.class.getName();
+    }*/
+    if (env == null) {
+      env = "android";
+    }
+
+    switch (env) {
+      case "android_emulator":
+        Configuration.browser = LocalMobileDriver.class.getName();
+        break;
+      case "android":
+        Configuration.browser = BrowserstackMobileDriver.class.getName();
+        break;
+      case "iphone":
+        Configuration.browser = BrowserstackMobileDriver.class.getName();
+        break;
+
+    }
+    //Configuration.browser = BrowserstackMobileDriver.class.getName();
     Configuration.browserSize = null;
   }
 
@@ -55,6 +64,9 @@ public class TestBase {
     //Attach.addVideo(sessionId);
     switch (env) {
       case "android":
+        Attach.addVideo(sessionId);
+        break;
+      case "iphone":
         Attach.addVideo(sessionId);
         break;
     }
